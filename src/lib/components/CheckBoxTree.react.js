@@ -41,38 +41,38 @@ class DashCheckBoxTree extends React.Component {
 
 	render() {
 	    const icons = {
-	      check: <MdCheckBox className="rct-icon rct-icon-check" />,
-	      uncheck: <MdCheckBoxOutlineBlank className="rct-icon rct-icon-uncheck" />,
-	      halfCheck: (<MdIndeterminateCheckBox className="rct-icon rct-icon-half-check" />),
-	      expandClose: (<MdChevronRight className="rct-icon rct-icon-expand-close" />),
-	      expandOpen: (<MdKeyboardArrowDown className="rct-icon rct-icon-expand-open" />),
-	      expandAll: <MdAddBox className="rct-icon rct-icon-expand-all" />,
-	      collapseAll: (<MdIndeterminateCheckBox className="rct-icon rct-icon-collapse-all" />),
-	      parentClose: <MdFolder className="rct-icon rct-icon-parent-close" />,
-	      parentOpen: <MdFolderOpen className="rct-icon rct-icon-parent-open" />,
-	      leaf: <MdInsertDriveFile className="rct-icon rct-icon-leaf-close" />
+	        check: <MdCheckBox className="rct-icon rct-icon-check" />,
+	        uncheck: <MdCheckBoxOutlineBlank className="rct-icon rct-icon-uncheck" />,
+	        halfCheck: (<MdIndeterminateCheckBox className="rct-icon rct-icon-half-check" />),
+	        expandClose: (<MdChevronRight className="rct-icon rct-icon-expand-close" />),
+	        expandOpen: (<MdKeyboardArrowDown className="rct-icon rct-icon-expand-open" />),
+	        expandAll: <MdAddBox className="rct-icon rct-icon-expand-all" />,
+	        collapseAll: (<MdIndeterminateCheckBox className="rct-icon rct-icon-collapse-all" />),
+	        parentClose: <MdFolder className="rct-icon rct-icon-parent-close" />,
+	        parentOpen: <MdFolderOpen className="rct-icon rct-icon-parent-open" />,
+	        leaf: <MdInsertDriveFile className="rct-icon rct-icon-leaf-close" />
 	    };
 
 		return (
 			<CheckBoxTree
 		        nodes={this.props.nodes}
-						checked={this.state.checked}
-						expanded={this.state.expanded}
+				checked={this.state.checked}
+				expanded={this.state.expanded}
 		        icons={icons}
-						{...omit(['checked', 'expanded', 'setProps'], this.props)}
+				{...omit(['checked', 'expanded', 'setProps'], this.props)}
 				onCheck={checked => {
-		          if(this.props.setProps) {
-		            this.props.setProps({checked: checked});
-		          } else {
-		            this.setState({ checked })
-		          }
-						}}
+					if(this.props.setProps) {
+						this.props.setProps({checked: checked});
+					} else {
+						this.setState({checked: checked })
+					}
+				}}
 		        onExpand={expanded => {
-		          if(this.props.setProps) {
-		            this.props.setProps({expanded: expanded});
-		          } else {
-		            this.setState({ expanded })
-		          }
+					if(this.props.setProps) {
+						this.props.setProps({expanded: expanded});
+					} else {
+						this.setState({expanded: expanded })
+					}
 		        }}
 				data-dash-is-loading={
 		          	(this.props.loading_state && this.props.loading_state.is_loading) ||
@@ -215,7 +215,6 @@ DashCheckBoxTree.propTypes = {
 	 * to Dash, to make them available for callbacks.
 	 */
 	setProps: PropTypes.func
-
 }
 
 DashCheckBoxTree.defaultProps = {

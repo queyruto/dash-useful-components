@@ -1,4 +1,12 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 export(''CheckBoxTree)
+export(''CollapsibleTableBody)
+export(''CollapsibleTableCell)
+export(''TreeTable)
+export(CollapsibleTable)
+export(CollapsibleTableRow)
+export(ComponentProps)
 export(DashUsefulComponents)
+export(TableRow)
+export(TreeTableRow)

@@ -1,6 +1,6 @@
 Package: dashUsefulComponents
 Title: Additional useful components for Dash
-Version: 0.0.1
+Version: 0.0.4
 Authors @R: as.person(c(Olivier Queyrut <oqueyrut@gmail.com>))
 Description: Additional useful components for Dash
 Depends: R (>= 3.0.2)

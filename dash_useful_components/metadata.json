@@ -269,5 +269,381 @@
         "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
       }
     }
+  },
+  "src/lib/components/CollapsibleTableBody.react.js": {
+    "description": "",
+    "displayName": "CollapsibleTableBody",
+    "methods": [
+      {
+        "name": "checkProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "parseChildrenToArray",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "onExpand",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "index",
+            "type": null
+          },
+          {
+            "name": "expanded",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\r\nin callbacks. The ID needs to be unique across all of the\r\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component (the cells Th and Td)"
+      },
+      "nbCols": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "number"
+            },
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "number"
+              }
+            }
+          ]
+        },
+        "required": true,
+        "description": "The number of columns, a number if all rows have the same number of cols,\r\nor an array if rows have different number of cols."
+      },
+      "rowLevels": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "number"
+          }
+        },
+        "required": true,
+        "description": "The tree structure of children"
+      },
+      "rowHeaders": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "The row headers"
+      },
+      "visibleRows": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "bool"
+          }
+        },
+        "required": false,
+        "description": "Expanded / collapsed status of the rows"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Defines CSS styles which will override styles previously set."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\r\nperformance by React.js while rendering components\r\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/CollapsibleTableCell.react.js": {
+    "description": "",
+    "displayName": "CollapsibleTableCell",
+    "methods": [],
+    "props": {
+      "index": {
+        "type": {
+          "name": "number"
+        },
+        "required": true,
+        "description": "Index of the row (used to handle the expanded state at CollapsibleTableBody level)"
+      },
+      "expandable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": true,
+        "description": "Whether the cel is expandable or not"
+      },
+      "level": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Level of the row"
+      },
+      "expanded": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the cell is expanded or collapsed"
+      },
+      "onExpand": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": "Callback when the expanded status changes"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/TreeTable.react.js": {
+    "description": "TreeTable is a Dash component that displays a tree table.\r\n\nTreeTable is the Dash encapsulation of the react tree table by Constantin Panaitescu:\r\nhttps://github.com/constantin-p/cp-react-tree-table",
+    "displayName": "DashTreeTable",
+    "methods": [
+      {
+        "name": "renderHeaderCell",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "column",
+            "type": null
+          },
+          {
+            "name": "i",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "renderCell",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "column",
+            "type": null
+          },
+          {
+            "name": "i",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\r\nin callbacks. The ID needs to be unique across all of the\r\ncomponents in an app."
+      },
+      "nodes": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "data": {
+                "name": "any",
+                "description": "The node label",
+                "required": true
+              },
+              "height": {
+                "name": "number",
+                "description": "The node value",
+                "required": false
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "The data structure to display"
+      },
+      "columns": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "label": {
+                "name": "string",
+                "description": "The title",
+                "required": false
+              },
+              "property": {
+                "name": "string",
+                "description": "The row property to display",
+                "required": false
+              },
+              "renderer": {
+                "name": "func",
+                "description": "The node element to display",
+                "required": false
+              },
+              "grow": {
+                "name": "number",
+                "description": "flexGrow CSS property",
+                "required": false
+              },
+              "basis": {
+                "name": "number",
+                "description": "flexBasis CSS property",
+                "required": false
+              },
+              "className": {
+                "name": "string",
+                "description": "Classname of the column",
+                "required": false
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "The columns to display"
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The height of the rendered table (pixels)."
+      },
+      "headerHeight": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The height of the rendered header row (pixels)."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Defines CSS styles which will override styles previously set."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
   }
 }

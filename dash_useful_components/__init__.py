@@ -44,7 +44,12 @@ _js_dist = [
     }
 ]
 
-_css_dist = []
+_css_dist = [
+    {
+        'relative_package_path': 'treetable.css',
+        'namespace': package_name
+    },
+]
 
 
 for _component in __all__:
