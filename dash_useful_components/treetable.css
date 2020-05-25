@@ -1,0 +1,7 @@
+.cp_tree-table button:focus {
+    outline: none;
+}
+
+.collapsible-cell button:focus {
+    outline: none;
+}

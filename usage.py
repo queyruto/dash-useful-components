@@ -7,6 +7,7 @@ from dash.exceptions import PreventUpdate
 
 app = dash.Dash(__name__)
 
+# DEFINE THE CHECKBOX TREE
 checkboxtree_nodes = [
     {
         "value": "N1",
@@ -60,6 +61,7 @@ checkboxtree_nodes = [
     }
 ]
 
+# DEFINE THE TREE TABLE
 treetable_nodes = [
     {
         'data': {'name': 'Company A', 'expenses': '60,000',
@@ -141,25 +143,27 @@ treetable_cols = [
     },
 ]
 
-# dcc.Slider(min=0, max=30, step=1, value=5)
+# DEFINE THE COLLAPSIBLE TABLE
 cells = [
-    html.Td("60,000"), html.Td(dcc.Slider(min=0, max=30, step=1, value=5)),
-    html.Td("70,000"), html.Td("5"),
-    html.Td("105,000"), html.Td("4"),
-    html.Td("55,000"), html.Td("3"), html.Td('Florence Carter'),
-    html.Td("40,000"), html.Td("5"), html.Td('Doug Moss'),
-    html.Td("10,000"), html.Td("4"), html.Td('Camila Devonport'),
-    html.Td("5,000"), html.Td("2"), html.Td('Violet Curtis'),
-    html.Td("50,000"), html.Td("8"), html.Td('Selena Rycroft'),
-    html.Td("40,000"), html.Td("6"),
+    html.Td("60,000"), html.Td(dcc.Slider(min=0, max=10, step=1, value=5)),
+    html.Td("70,000"), html.Td(dcc.Slider(min=0, max=10, step=1, value=5)),
+    html.Td("105,000"), html.Td(dcc.Slider(min=0, max=10, step=1, value=4)),
+    html.Td("50,000"), html.Td(dcc.Slider(min=0, max=10, step=1, value=8)), html.Td('Selena Rycroft'),
+    html.Td("55,000"), html.Td(dcc.Slider(min=0, max=10, step=1, value=3)), html.Td('Florence Carter'),
+    html.Td("40,000"), html.Td(dcc.Slider(min=0, max=10, step=1, value=5)), html.Td('Doug Moss'),
+    html.Td("10,000"), html.Td(dcc.Slider(min=0, max=10, step=1, value=4)), html.Td('Camila Devonport'),
+    html.Td("5,000"), html.Td(dcc.Slider(min=0, max=10, step=1, value=2)), html.Td('Violet Curtis'),
+    html.Td("40,000"), html.Td(dcc.Slider(min=0, max=10, step=1, value=6)),
 ]
-rowHeaders = ["Company A", "Company B", "Company C", "Department 1", "Group alpha", "Group beta", "Group gamma", "Departement 2", "Company D"]
-levels = [1, 1, 1, 2, 3, 3, 3, 2, 1]
+rowHeaders = ["Company A", "Company B", "Company C", "Departement 2", "Department 1", "Group alpha", "Group beta", "Group gamma", "Company D"]
+levels = [1, 1, 1, 2, 2, 3, 3, 3, 1]
 nbCols = [2, 2, 2, 3, 3, 3, 3, 3, 2]
 header = html.Thead(html.Tr([html.Th("Name"), html.Th("Expenses"), html.Th("Employees"), html.Th("Contact")]))
 body = duc.CollapsibleTableBody(children=cells, nbCols=nbCols, rowLevels=levels, rowHeaders=rowHeaders)
 
+# DEFINE THE LAYOUT
 app.layout = html.Div([
+    # CHECKBOX TREE
     html.H1("CheckBoxTree"),
     html.Div(duc.CheckBoxTree(id="cb_input", nodes=checkboxtree_nodes, showNodeIcon=False)),
     html.Div([
@@ -180,9 +184,11 @@ app.layout = html.Div([
     html.Div(id='checked-output'),
     html.Div(id='expanded-output'),
     html.Hr(),
+    # TREE TABLE
     html.H1("TreeTable"),
     html.Div(duc.TreeTable(id="tt_input", columns=treetable_cols, nodes=treetable_nodes)),
     html.Hr(),
+    # COLLAPSIBLE TABLE
     html.H1("Collapsible Table"),
     html.Div(html.Table(id="ct_input", children=[header, body]))
 ])

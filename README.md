@@ -1,6 +1,10 @@
 # dash useful components
 
 dash useful components is a Dash component library.
+It provides the following components:
+- a checkbox tree
+- a tree table
+- a collapsible table body
 
 Get started with:
 1. Install Dash and its dependencies: https://dash.plot.ly/installation
