@@ -1,6 +1,6 @@
 {
   "name": "dash_useful_components",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Additional useful components for Dash",
   "repository": {
     "type": "git",
