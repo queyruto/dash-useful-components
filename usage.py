@@ -10,7 +10,7 @@ app = dash.Dash(__name__)
 # DEFINE THE CHECKBOX TREE
 checkboxtree_nodes = [
     {
-        "value": "N1",
+        "value": "P1",
         "label": "ParentOne",
         "children": [
             {

@@ -1,6 +1,6 @@
 {
   "name": "dash_useful_components",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Additional useful components for Dash",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
   "homepage": "https://github.com/queyruto/dash-useful-components",
   "main": "build/index.js",
   "scripts": {
-    "start": "webpack-serve --config ./webpack.serve.config.js --open",
+    "start": "webpack-serve --host 127.0.0.1 --config ./webpack.serve.config.js --open",
     "validate-init": "python _validate_init.py",
     "prepublishOnly": "npm run validate-init",
     "build:js": "webpack --mode production",
@@ -31,8 +31,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.2",
@@ -50,8 +50,8 @@
     "react-dom": "^16.12.0",
     "style-loader": "^0.23.1",
     "styled-jsx": "^3.2.1",
-    "webpack": "4.36.1",
-    "webpack-cli": "3.3.6",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
     "webpack-serve": "3.1.0"
   },
   "engines": {

@@ -19,12 +19,6 @@ class CollapsibleTableCell extends React.Component {
             expanded: this.props.expanded
         };
     }
-       
-	componentWillReceiveProps(newProps) {
-        this.setState({
-            expanded: newProps.expanded
-	    });
-	}
 
 	render() {
         // filter children with the visible ones
@@ -34,11 +28,7 @@ class CollapsibleTableCell extends React.Component {
         const buttonTag = expandable ?
                 <button className="rct-collapse rct-collapse-btn" onClick={(e) => {
                     const newState = !this.state.expanded
-                    if(this.props.setProps) {
-                        this.props.setProps({expanded: newState});
-                    } else {
-                        this.setState({expanded: newState})
-                    }
+                    this.setState({expanded: newState});
                     // fire an event to the parent component (i.e. CollapsibleTableBody)
                     this.props.onExpand(this.props.index, newState);
                 }}>
