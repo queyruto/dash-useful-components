@@ -1,7 +1,6 @@
 Package: dashUsefulComponents
 Title: Additional useful components for Dash
 Version: 0.0.4
-Authors @R: as.person(c(Olivier Queyrut <oqueyrut@gmail.com>))
 Description: Additional useful components for Dash
 Depends: R (>= 3.0.2)
 Imports: 
@@ -11,5 +10,4 @@ URL: https://github.com/queyruto/dash-useful-components
 BugReports: https://github.com/queyruto/dash-useful-components/issues
 Encoding: UTF-8
 LazyData: true
-Author: Olivier Queyrut [aut]
-Maintainer: Olivier Queyrut <oqueyrut@gmail.com>
+KeepSource: true

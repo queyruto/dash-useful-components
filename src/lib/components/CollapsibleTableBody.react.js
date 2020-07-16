@@ -20,6 +20,7 @@ class CollapsibleTableBody extends React.Component {
 	constructor(props) {
         super(props);
         // In JavaScript, class methods are not bound by default
+        this.propsToState = this.propsToState.bind(this);
         this.parseChildrenToArray = this.parseChildrenToArray.bind(this)
         this.checkProps = this.checkProps.bind(this)
 
@@ -29,12 +30,20 @@ class CollapsibleTableBody extends React.Component {
 	    };
 	}
     
-	componentWillReceiveProps(newProps) {
+    propsToState(newProps) {
         this.checkProps(newProps)
         this.setState({
             visibleRows: "visibleRows" in newProps ? newProps.visibleRows : newProps.rowLevels.map(level => level == 1)
-	    });
+        });
+    }
+
+	UNSAFE_componentWillReceiveProps(newProps) {
+        this.propsToState(newProps);
 	}
+
+    UNSAFE_componentWillMount() {
+        this.propsToState(this.props);
+    }
 
     checkProps(props) {
         const children = this.parseChildrenToArray();
@@ -77,7 +86,7 @@ class CollapsibleTableBody extends React.Component {
 
     onExpand = (index, expanded) => {
         const currentLevel = this.props.rowLevels[index]
-        const visibleRows = this.state.visibleRows
+        const visibleRows = this.state.visibleRows.slice()
         const nbRows = this.props.rowLevels.length;
 
         // update visible status of the next rows
@@ -96,11 +105,7 @@ class CollapsibleTableBody extends React.Component {
         }
 
         // check if the component is used by Dash or not
-        if(this.props.setProps) {
-            this.props.setProps({visibleRows: visibleRows});
-        } else {
-            this.setState({visibleRows: visibleRows})
-        }
+        this.props.setProps({visibleRows: visibleRows})
     }
 
 	render() {

@@ -26,18 +26,32 @@ import {
 class DashCheckBoxTree extends React.Component {
 	constructor(props) {
 		super(props);
+        this.propsToState = this.propsToState.bind(this);
+		// state stores two properties :
+		// - whether the checkboxes are checked or not
+		// - whether the tree nodes are expanded or not
 		this.state = {
 			checked: props.checked,
 			expanded: props.expanded
 		};
 	}
 
-	componentWillReceiveProps(newProps) {
-		this.setState({
-			checked: newProps.checked,
-			expanded: newProps.expanded
-		});
-	}
+    propsToState(newProps) {
+		if (newProps.checked !== this.props.checked || newProps.expanded !== this.props.expanded) {
+			this.setState({
+				checked: newProps.checked,
+				expanded: newProps.expanded
+			});
+		}
+    }
+
+    UNSAFE_componentWillReceiveProps(newProps) {
+        this.propsToState(newProps);
+    }
+
+    UNSAFE_componentWillMount() {
+        this.propsToState(this.props);
+    }
 
 	render() {
 	    const icons = {
@@ -61,18 +75,10 @@ class DashCheckBoxTree extends React.Component {
 		        icons={icons}
 				{...omit(['checked', 'expanded', 'setProps'], this.props)}
 				onCheck={checked => {
-					if(this.props.setProps) {
-						this.props.setProps({checked: checked});
-					} else {
-						this.setState({checked: checked })
-					}
+					this.props.setProps({checked: checked});
 				}}
 		        onExpand={expanded => {
-					if(this.props.setProps) {
-						this.props.setProps({expanded: expanded});
-					} else {
-						this.setState({expanded: expanded })
-					}
+					this.props.setProps({expanded: expanded});
 		        }}
 				data-dash-is-loading={
 		          	(this.props.loading_state && this.props.loading_state.is_loading) ||
