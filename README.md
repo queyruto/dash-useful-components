@@ -2,11 +2,17 @@
 
 dash useful components is a Dash component library.
 It provides the following components:
+
 - a checkbox tree
+
 ![CheckBoxTree](checkboxtree.png)
+
 - a tree table
+
 ![TreeTable](treetable.png)
+
 - a collapsible table body
+
 ![CollapsibleTable](collapsibletable.png)
 
 Get started with:
