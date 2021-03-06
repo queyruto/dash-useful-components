@@ -47,7 +47,7 @@ class DashTreeTable extends React.Component {
 							: ''}
 						{typeof row.data[column.property] === 'string'
 							?<span style={row.metadata.hasChildren ? {} : { paddingLeft: '24px'}}
-								   className="{column.className}">{row.data[column.property]}</span>
+								   className={column.className}>{row.data[column.property]}</span>
 							:<React.Fragment key={i}>{row.data[column.property]}</React.Fragment>
 						}
 					  </div>
@@ -55,7 +55,7 @@ class DashTreeTable extends React.Component {
 			})
 			: ((row) => {
 				return (typeof row.data[column.property] === 'string'
-					?<span className="{column.className}">{row.data[column.property]}</span>
+					?<span className={column.className}>{row.data[column.property]}</span>
 					:<React.Fragment key={i}>{row.data[column.property]}</React.Fragment>
 				);
 			})
